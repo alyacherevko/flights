@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Flights</title>
-	<link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <title>Flights</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-	<header class="header">
-		<a href="" class="header__button header__button--departures">Вылет</a>
-		<a href="" class="header__button header__button--arrivals">Прилет</a>
-		<a href="" class="header__button header__button--delay">Задерживаются</a>
-		<input type="search" class="header__search" placeholder="Поиск по номеру рейса и городу">
-	</header>
-	<main>
-		<div class="card">
-			<ul class="card__content">
-				<li class="card__content-time">Время</li>
-				<li class="card__content-city">Город</li>
-				<li class="card__content-num">Номер</li>
-			</ul>
-		</div>
-		<div class="card">
-			<ul class="card__content">
-				<li class="card__content-time">10:00</li>
-				<li class="card__content-city">Ростов-на-Дону</li>
-				<li class="card__content-num">1162</li>
-			</ul class="card__content">
-		</div>
-		<div class="card">
-			<ul class="card__content">
-				<li class="card__content-time">10:05</li>
-				<li class="card__content-city">Архангельск</li>
-				<li class="card__content-num">1332</li>
-			</ul>
-		</div>
-		<div class="card">
-			<ul class="card__content">
-				<li class="card__content-time">10:10</li>
-				<li class="card__content-city">Санкт-Петербург</li>
-				<li class="card__content-num">014</li>
-			</ul>
-		</div>
-	</main>
-	<footer></footer>
+    <header class="header">
+        <ul class="header__button-list">
+            <li><a href="" class="header__button header__button--departures">Вылет</a></li>
+            <li><a href="" class="header__button header__button--arrivals">Прилет</a></li>
+            <li><a href="" class="header__button header__button--delay">Задерживаются</a></li>
+        </ul>
+        <input type="search" class="header__search" placeholder="Поиск по номеру рейса и городу">
+    </header>
+    <main>
+        <div class="card">
+            <ul class="card__content-list">
+                <li class="card__content-item card__content-item--time">Время</li>
+                <li class="card__content-item card__content-item--city">Город</li>
+                <li class="card__content-item card__content-item--num">Номер</li>
+            </ul>
+        </div>
+        <div class="card">
+            <ul class="card__content-list">
+                <li class="card__content-item card__content-item--time">10:00</li>
+                <li class="card__content-item card__content-item--city">Ростов-на-Дону</li>
+                <li class="card__content-item card__content-item--num">1162</li>
+            </ul class="card__content">
+        </div>
+        <div class="card">
+            <ul class="card__content-list">
+                <li class="card__content-item card__content-item--time">10:05</li>
+                <li class="card__content-item card__content-item--city">Архангельск</li>
+                <li class="card__content-item card__content-item--num">1332</li>
+            </ul>
+        </div>
+        <div class="card">
+            <ul class="card__content-list">
+                <li class="card__content-item card__content-item--time">10:10</li>
+                <li class="card__content-item card__content-item--city">Санкт-Петербург</li>
+                <li class="card__content-item card__content-item--num">014</li>
+            </ul>
+        </div>
+    </main>
+    <footer></footer>
 </body>
+
 </html>
