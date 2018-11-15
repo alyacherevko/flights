@@ -1,13 +1,14 @@
 var type = "departure";
 
-function changeType(newType) {
+function changeType(newType, flightsCard) {
 	type = newType;
 	var active = document.getElementsByClassName("header__button--active");
-	console.log(active);
 	while(active && active.length > 0) {
 		active[0].classList.remove('header__button--active');
 	}
-	document.querySelector("#" + newType).classList.add("header__button--active")
+	document.querySelector("#" + newType).classList.add("header__button--active");
+	showFlightsCard(flightsCard);
+	return false;
 }
 
 var timetable = document.querySelector('#timetable');
@@ -23,22 +24,33 @@ request.onload = function() {
   showFlightsCard(flightsCard);
 
   document.querySelector('#departure').onclick = function () {
-  	changeType("departure");
-  	showFlightsCard(flightsCard);
-  	return false;
+  	return changeType("departure", flightsCard);
   }
 
   document.querySelector('#arrival').onclick = function () {
-  	changeType("arrival");
-  	showFlightsCard(flightsCard);
-  	return false;
+  	return changeType("arrival", flightsCard);
   }
+
+  document.querySelector("#search").addEventListener('input', function (e) {
+  	showFlightsCard(flightsCard, e.target.value);
+  })
 
 }
 
 
-function showFlightsCard(jsonObj, searchFn=function (_) {return true;}) {
-	var flying = jsonObj["flying"].filter(function (item) {return item["type"] === type}).filter(searchFn);
+function showFlightsCard(jsonObj, searchTerm=null) {
+	var flying = jsonObj["flying"].filter(function (item) {return item["type"] === type})
+
+	if (searchTerm) {
+		flying = flying.filter(function (item) {
+			var number = (item["num"].indexOf(searchTerm) !== -1);
+			console.log(number);
+			var city = (item["city"].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+			console.log(city);
+			return (number || city); 
+		})
+		console.log(flying);
+	}
 
 	if (timetable) {
 		timetable.innerHTML = '';
