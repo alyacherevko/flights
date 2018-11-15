@@ -53,24 +53,19 @@ html {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	border-bottom: 1px solid #1f1f1f;
 }
 
 .card__content-item {
-	text-align: left;
+	width: 30%;
 	padding: 20px 0;
 	font-weight: bold;
 	font-size: 30px;
 }
 
-.card__content-item--time {
-	width: 15%;
+.card__content-item--title {
+	font-size: 20px;
 }
 
-.card__content-item--city { 
-	width: 65%;
-}
 
-.card__content-item--num {
-	width: 20%;
-}
 
