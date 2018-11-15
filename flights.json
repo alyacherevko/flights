@@ -1,0 +1,24 @@
+{ "flying": [
+    {
+      "city": "Ростов-на-Дону",
+      "time": "10:00",
+      "num": "1162",
+      "type": "departure",
+      "delay": true
+    },
+    {
+      "city": "Архангельск",
+      "time": "10:05",
+      "num": "1332",
+      "type": "arrival",
+      "delay": false
+    },
+    {
+      "city": "Санкт-Петербург",
+      "time": "10:10",
+      "num": "014",
+      "type": "departure",
+      "delay": false
+    }
+  ]
+}
