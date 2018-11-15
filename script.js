@@ -1,4 +1,6 @@
 var type = "departure";
+var searchTerm = null;
+var onlyDelay = false;
 
 function changeType(newType, flightsCard) {
 	type = newType;
@@ -32,24 +34,44 @@ request.onload = function() {
   }
 
   document.querySelector("#search").addEventListener('input', function (e) {
-  	showFlightsCard(flightsCard, e.target.value);
+  	searchTerm = e.target.value;
+  	showFlightsCard(flightsCard);
+  })
+
+  document.querySelector("#delays").addEventListener('change', function () {
+  	onlyDelay = this.checked;
+  	showFlightsCard(flightsCard);
   })
 
 }
 
+function showFlightsCard(jsonObj) {
+	var flying = jsonObj["flying"].sort(function (a, b) {
+		if (a["time"] < b["time"]) {
+			return -1;
+		} else if (a["time"] > b["time"]) {
+			return 1;
+		} else {
+			return 0;
+		}
+	})
 
-function showFlightsCard(jsonObj, searchTerm=null) {
-	var flying = jsonObj["flying"].filter(function (item) {return item["type"] === type})
+	var flying = jsonObj["flying"].filter(function (item) {
+		return item["type"] === type;
+	})
 
 	if (searchTerm) {
 		flying = flying.filter(function (item) {
 			var number = (item["num"].indexOf(searchTerm) !== -1);
-			console.log(number);
 			var city = (item["city"].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
-			console.log(city);
 			return (number || city); 
 		})
-		console.log(flying);
+	}
+
+	if (onlyDelay) {
+		flying = flying.filter(function (item) {
+			return item["delay"] === true;
+		})
 	}
 
 	if (timetable) {
@@ -61,6 +83,7 @@ function showFlightsCard(jsonObj, searchTerm=null) {
 		var cardList = document.createElement('ul');
 
 		var itemCardList = flying[i];
+		var delay = (itemCardList["delay"] === true);
 		
 		Object.keys(itemCardList).forEach(function (key) {
 
@@ -73,6 +96,9 @@ function showFlightsCard(jsonObj, searchTerm=null) {
   			itemList.textContent = itemCardList[key];
   			cardList.appendChild(itemList);
   			itemList.classList.add("card__content-item");
+  			if (delay) {
+  				itemList.classList.add("delay");
+  			}
 		});
 		
 		cardList.classList.add("card__content-list");
