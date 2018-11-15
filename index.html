@@ -10,8 +10,8 @@
 <body>
     <header class="header">
         <ul class="header__button-list">
-            <li><a href="" class="header__button header__button--departures">Вылет</a></li>
-            <li><a href="" class="header__button header__button--arrivals">Прилет</a></li>
+            <li><a href="" class="header__button header__button--departures header__button--active" id="departure">Вылет</a></li>
+            <li><a href="" class="header__button header__button--arrivals" id="arrival">Прилет</a></li>
             <li><a href="" class="header__button header__button--delay">Задерживаются</a></li>
         </ul>
         <input type="search" class="header__search" placeholder="Поиск по номеру рейса и городу">
@@ -20,8 +20,10 @@
         <ul class="card__content-list">
                 <li class="card__content-item card__content-item--title">Город</li>
                 <li class="card__content-item card__content-item--title">Время</li>
-                <li class="card__content-item card__content-item--title">Номер</li>
-            </ul>
+                <li class="card__content-item card__content-item--title">Номер рейса</li>
+        </ul>
+        <div id="timetable">
+        </div>
     </main>
     <footer></footer>
     <script src="./script.js"></script>

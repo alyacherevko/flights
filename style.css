@@ -31,9 +31,13 @@ html {
 
 .header__button {
 	display: block;
-	padding: 50px;
+	padding: 50px 0;
 	font-weight: 700;
 	font-size: 50px;
+	color: #000;
+}
+
+.header__button--active {
 	color: #ffac02;
 }
 
