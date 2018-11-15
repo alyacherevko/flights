@@ -13,13 +13,21 @@
             <li><a href="" class="header__button header__button--departures header__button--active" id="departure">Вылет</a></li>
             <li><a href="" class="header__button header__button--arrivals" id="arrival">Прилет</a></li>
         </ul>
-        <input type="search" class="header__search" id="search" placeholder="Поиск по номеру рейса и городу">
+        <div class="header__filters">
+            <input type="search" class="header__search" id="search" placeholder="Поиск по номеру рейса и городу">
+            <div class="toggle">
+                <input type="checkbox" class="check">
+                <b class="b switch"></b>
+                <b class="b track"></b>
+            </div>
+			<h3 class="toggle__title">Задерживающиеся рейсы</h3>
+        </div>
     </header>
     <main class="main">
         <ul class="card__content-list">
-                <li class="card__content-item card__content-item--title">Город</li>
-                <li class="card__content-item card__content-item--title">Время</li>
-                <li class="card__content-item card__content-item--title">Номер рейса</li>
+            <li class="card__content-item card__content-item--title">Город</li>
+            <li class="card__content-item card__content-item--title">Время</li>
+            <li class="card__content-item card__content-item--title">Номер рейса</li>
         </ul>
         <div id="timetable">
         </div>
